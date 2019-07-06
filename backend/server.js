@@ -5,7 +5,7 @@ const cheerio = require("cheerio");
 const path = require("path");
 
 const db = require("./models");
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 const app = express();
 
 if (process.env.NODE_ENV === "production") {
