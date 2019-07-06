@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const axios = require("axios");
 const cheerio = require("cheerio");
 const path = require("path");
+const cors = require("cors");
 
 const db = require("./models");
 const PORT = process.env.PORT || 3001;
@@ -15,6 +16,7 @@ if (process.env.NODE_ENV === "production") {
 // Parse request body as JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors());
 
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/react-news-scraper";
 
