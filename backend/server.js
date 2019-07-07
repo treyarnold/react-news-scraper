@@ -23,7 +23,7 @@ const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/react-news-s
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 app.get("/", (req, res) => {
-  res.send(PORT)
+  res.send("Hello World")
 })
 
 app.get("/scrape", function (req, res) {
