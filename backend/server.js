@@ -41,16 +41,9 @@ app.get("/scrape", function (req, res) {
         result.blurb = $(this).find($(".bc-excerpt")).text();
 
         if (result.blurb) {
-          db.Article.create(result)
-            .then((dbArticle) => {
-              console.log(dbArticle);
-            })
-            .catch((err) => {
-              console.log(err);
-            });
+          db.Article.create(result);
         }
       }
-
     });
     res.send("Scrape Complete");
   });
@@ -76,6 +69,15 @@ app.get("/articles/:id", function (req, res) {
       res.json(err);
     });
 });
+
+app.delete("/articles", function (req, res) {
+  db.Article.deleteMany({}).then(function (dbArticle) {
+    res.json(dbArticle);
+  })
+    .catch(function (err) {
+      res.json(err);
+    });
+})
 
 // Route for saving/updating an Article's associated Note
 // app.post("/articles/:id", function (req, res) {

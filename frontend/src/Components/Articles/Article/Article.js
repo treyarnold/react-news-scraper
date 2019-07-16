@@ -4,7 +4,7 @@ import classes from "./Article.module.css"
 
 const Article = (props) => (
   <div className={classes.card}>
-    <a href={props.data.url}>
+    <a target="_blank" rel="noopener noreferrer" href={props.data.url}>
       <img src={props.data.image} alt={props.data.title}></img>
     </a>
     <div className={classes.body}>

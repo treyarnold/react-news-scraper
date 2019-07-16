@@ -6,14 +6,14 @@ import classes from "./Articles.module.css";
 
 const db = "http://localhost:3001/articles";
 
-const Articles = () => {
+const Articles = (props) => {
+  console.log(props.match);
   const [articles, setArticles] = useState({
     articleData: [],
     hasArticles: false
   });
 
   useEffect(() => {
-    console.log(articles.articleData);
     if (!articles.hasArticles){
       axios.get(db).then((result) => {
         if (result.data.length) {
@@ -24,7 +24,6 @@ const Articles = () => {
         }
       })
     }
-    console.log(articles.articleData);
   }, [articles])
 
   let content = <p>loading</p>;

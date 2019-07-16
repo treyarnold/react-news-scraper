@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 
 import Articles from "../Components/Articles/Articles";
 import classes from "./Layout.module.css";
@@ -9,18 +9,19 @@ const Layout = () => (
     <nav className={classes.header}>
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <NavLink to="/">Home</NavLink>
         </li>
         <li>
-          <Link to="/">Get New Articles</Link>
+          <NavLink to="/new">Get New Articles</NavLink>
         </li>
-        <li>
-          <Link to="/users/">Users</Link>
-        </li>
+        {/* <li>
+          <NavLink to="/users/">Users</NavLink>
+        </li> */}
       </ul>
     </nav>
 
     <Route path="/" exact component={Articles} />
+    <Route path="/new" exact component={Articles} />
     {/* <Route path="/about/" component={About} />
     <Route path="/users/" component={Users} /> */}
   </Router>
