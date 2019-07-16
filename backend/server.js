@@ -4,10 +4,11 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 const path = require("path");
 const cors = require("cors");
-
 const db = require("./models");
 const PORT = process.env.PORT || 3001;
 const app = express();
+
+require("dotenv").config();
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("../frontend/build"));
